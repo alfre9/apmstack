@@ -1,0 +1,16 @@
+# build output
+dist/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# local Claude Code settings
+.claude/settings.local.json
+
+# internal build notes, not for users
+BUILD_PROMPT.md
+DESIGN.md
+design.md

@@ -1,0 +1,7 @@
+{
+  "name": "apmstack",
+  "version": "0.1.0",
+  "description": "Skills for product managers that adapt to your domain and make you think: problem interviews, domain packs, stories, specs, competitive analysis.",
+  "author": { "name": "Alfred Chang" },
+  "license": "MIT"
+}

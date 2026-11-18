@@ -1,0 +1,12 @@
+{
+  "name": "apmstack",
+  "description": "APMstack: skills for product managers that adapt to your domain and make you think.",
+  "owner": { "name": "Alfred Chang" },
+  "plugins": [
+    {
+      "name": "apmstack",
+      "source": "./",
+      "description": "Skills for product managers that adapt to your domain and make you think."
+    }
+  ]
+}

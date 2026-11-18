@@ -1,0 +1,39 @@
+#!/bin/sh
+# APMstack setup. It copies the skill folders to where your AI host loads skills and,
+# if you have no PM home yet, points APMstack at a sample domain. That is all it does.
+#
+#   ./setup            install for Claude Code and the Claude desktop Code tab (~/.claude/skills)
+#   ./setup copilot    install for GitHub Copilot in VS Code (~/.copilot/skills)
+#   ./setup zip        build one zip per skill in dist/, for upload to the Claude app
+#   ./setup remove     delete the installed skills (your PM home is never touched)
+set -eu
+cd "$(dirname "$0")"
+names=$(ls skills)
+
+case "${1:-claude}" in
+  claude)  dest="$HOME/.claude/skills" ;;
+  copilot) dest="$HOME/.copilot/skills" ;;
+  zip)
+    mkdir -p dist
+    for n in $names; do rm -f "dist/$n.zip"; (cd skills && zip -qr "../dist/$n.zip" "$n"); done
+    echo "Built zips in dist/. In the Claude app: Customize > Skills > + > Upload a skill, once per zip."
+    exit 0 ;;
+  remove)
+    for n in $names; do rm -rf "$HOME/.claude/skills/$n" "$HOME/.copilot/skills/$n"; done
+    echo "Removed the APMstack skills. Your PM home and ~/.apmstack were left alone."
+    exit 0 ;;
+  *) echo "usage: ./setup [claude|copilot|zip|remove]"; exit 1 ;;
+esac
+
+mkdir -p "$dest"
+for n in $names; do rm -rf "$dest/$n"; cp -R "skills/$n" "$dest/$n"; done
+echo "Installed to $dest:" $names
+
+if [ -f "$HOME/.apmstack" ]; then
+  echo "PM home: $(cat "$HOME/.apmstack")"
+else
+  [ -d "$HOME/apmstack-example" ] || cp -R examples/apmstack "$HOME/apmstack-example"
+  echo "$HOME/apmstack-example" > "$HOME/.apmstack"
+  echo "No PM home yet, so APMstack points at a sample domain (Northdock, freight invoicing) in ~/apmstack-example."
+  echo "Try it: open a new session and type /pm-problem. Run /pm-setup when you want your own."
+fi
