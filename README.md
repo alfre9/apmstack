@@ -6,11 +6,58 @@ They learn your product, customers, company goals and team formats once, then in
 
 ## What it does
 
-You bring:
+Say you are a PM at Netflix (a made-up scenario; every number below is invented). Your VP posts this in Slack:
 
-> We need an exceptions aging dashboard for controllers, by carrier rep. I need a problem statement so Elena approves it.
+> Members say they can't find anything to watch. Let's build a "Surprise me" button.
 
-Ten questions later you have a problem statement that says the dashboard rests on one lost deal, names two possible root causes, tags every line as evidence `[E]` or assumption `[A]`, and gives you one afternoon's test to tell the causes apart.
+That is a solution, not a problem. Here is what APMstack does with it.
+
+![A Slack message becomes three questions, then a problem statement with every claim tagged as evidence or assumption](docs/netflix-example.svg)
+
+**1. It asks before it writes.** Type `/pm-problem` and paste the message. It asks one question at a time, the ones a good APM would ask:
+
+- Who says they can't find anything: new members, long-time members, kids profiles?
+- What does the data show? How long do people browse before they press play, or give up?
+- What happens after they give up? Do they come back tomorrow, or cancel?
+
+Answer what you know. "I don't know" becomes an open question, never an invented fact.
+
+**2. You get a problem statement your VP can say yes or no to.** Every claim is tagged as evidence `[E]` or assumption `[A]`:
+
+```
+## The problem
+Members who browse for more than 5 minutes without pressing play
+cancel more often that month.                                    [A]
+
+## Evidence and assumptions
+- 40 support tickets last month say "nothing to watch"           [E: support queue, Oct 2026]
+- Browse time vs cancellation has never been measured             [A]
+
+## Why this and not the others
+Two possible causes: too many choices, or top rows that miss the
+member's taste. "Surprise me" only fixes the first.
+
+## What would prove this wrong
+One week of browse-time and cancellation data, pulled before anyone builds.
+```
+
+**3. The rest of the stack picks it up.** Each skill reads what the last one wrote, so you never explain the idea twice:
+
+```mermaid
+flowchart LR
+  A["💬 VP's ask"] --> B["🤔 /pm-problem"] --> C["🎯 /pm-goals check"] --> D["📄 /pm-spec"] --> E["🗣️ /pm-review"] --> F["✅ /pm-story"]
+  style A fill:#e50914,color:#fff,stroke:#e50914
+  style F fill:#22c55e,color:#141414,stroke:#22c55e
+```
+
+| Next | What you get |
+|---|---|
+| `/pm-goals check surprise me button` | Whether it serves a company goal, such as "cut monthly churn". If it serves none, it says so. |
+| `/pm-spec` | A one-pager in your team's format, built from the problem statement. |
+| `/pm-review` | The questions your VP of Product and Head of Engineering will ask, before the meeting. |
+| `/pm-story` | Stories with acceptance criteria an engineer can build from. |
+
+It learns your product, customers and people once, so by the second idea it skips what it already knows. The sample that ships with it is Northdock, a fictional freight-invoicing company, so you can try all of this in step 2 below.
 
 ## Get started
 

@@ -89,7 +89,7 @@ About sixteen questions, one at a time, in this order, which puts what the other
 6. What goals has the company set for this year? Paste the OKRs or strategy memo if you have them. → `goals.md` (record them as `/pm-goals` does: word for word, one ID each, `?` lines for any measure or owner not given)
 7. What are the one to three bets for this half or this year? → `domain.md`, then ask which goal each serves, one bet at a time → `goals.md`
 8. Paste a recent ticket, spec or message thread and I will pull the jargon, or name five words an outsider would not understand. → `glossary.md`
-9. Who has to say yes to your work, and who can say no? What does each care about? → `stakeholders.md`
+9. Who are your stakeholders? Start with your manager, then the people who approve your specs, the leads you depend on, and anyone who can block a launch. What does each one care about? → `stakeholders.md`
 10. How does each of them like to be told things: a doc, a message, a meeting? → `stakeholders.md`
 11. Which tracker do you use? Paste one story you wrote and thought was well written. → `workflow.md`, `voice.md`
 12. What makes a story ready to build here? What does a spec go through before it is approved? → `workflow.md`

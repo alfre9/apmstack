@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="330" viewBox="0 0 900 330" role="img" aria-labelledby="t d">
+  <title id="t">From a Slack message to a problem statement</title>
+  <desc id="d">Three cards. The ask: a VP wants a Surprise me button. The questions /pm-problem asks. The problem statement, with every claim tagged as evidence or assumption.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #f5f5f5; }
+    .h { font-size: 15px; font-weight: 700; }
+    .b { font-size: 13px; }
+    .s { font-size: 12px; }
+    .m { fill: #a3a3a3; }
+    .tag { font-size: 11px; font-weight: 700; fill: #141414; text-anchor: middle; }
+  </style>
+  <rect width="900" height="330" rx="16" fill="#141414"/>
+  <text x="450" y="44" text-anchor="middle" style="font-size:19px;font-weight:700">From a Slack message to a problem statement your VP can approve</text>
+
+  <!-- 1. The ask -->
+  <rect x="20" y="70" width="260" height="240" rx="14" fill="#1f1f1f"/>
+  <text x="40" y="102" class="h">💬  The ask</text>
+  <rect x="40" y="118" width="220" height="104" rx="12" fill="#2c2c2c"/>
+  <text x="56" y="142" class="s m">VP of Product</text>
+  <text x="56" y="166" class="b">Members can't find anything</text>
+  <text x="56" y="186" class="b">to watch. Let's build a</text>
+  <text x="56" y="206" class="b">“Surprise me” button.</text>
+  <rect x="40" y="246" width="220" height="30" rx="15" fill="#e50914" fill-opacity="0.18" stroke="#e50914"/>
+  <text x="150" y="266" class="s" text-anchor="middle" style="fill:#ff7a7a">⚠️  a solution, not a problem</text>
+
+  <!-- arrow -->
+  <path d="M288 190 H310 M302 182 L311 190 L302 198" stroke="#e50914" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 2. The questions -->
+  <rect x="320" y="70" width="260" height="240" rx="14" fill="#1f1f1f"/>
+  <text x="340" y="102" class="h">🤔  /pm-problem asks</text>
+  <rect x="340" y="118" width="200" height="30" rx="15" fill="#2c2c2c"/>
+  <text x="356" y="138" class="b">Who can't find anything?</text>
+  <rect x="340" y="156" width="200" height="30" rx="15" fill="#2c2c2c"/>
+  <text x="356" y="176" class="b">How long do they browse?</text>
+  <rect x="340" y="194" width="200" height="30" rx="15" fill="#2c2c2c"/>
+  <text x="356" y="214" class="b">Do they cancel after?</text>
+  <rect x="410" y="236" width="150" height="30" rx="15" fill="#e50914"/>
+  <text x="485" y="256" class="b" text-anchor="middle">I don't know 🤷</text>
+  <text x="560" y="290" class="s m" text-anchor="end">→ saved as an open question</text>
+
+  <!-- arrow -->
+  <path d="M588 190 H610 M602 182 L611 190 L602 198" stroke="#e50914" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 3. The problem statement -->
+  <rect x="620" y="70" width="260" height="240" rx="14" fill="#1f1f1f"/>
+  <text x="640" y="102" class="h">📄  Problem statement</text>
+  <rect x="640" y="122" width="30" height="20" rx="10" fill="#f59e0b"/>
+  <text x="655" y="136" class="tag">A</text>
+  <text x="680" y="137" class="s">Long browsing → more cancels</text>
+  <rect x="640" y="154" width="30" height="20" rx="10" fill="#22c55e"/>
+  <text x="655" y="168" class="tag">E</text>
+  <text x="680" y="169" class="s">40 “nothing to watch” tickets</text>
+  <rect x="640" y="186" width="30" height="20" rx="10" fill="#f59e0b"/>
+  <text x="655" y="200" class="tag">A</text>
+  <text x="680" y="201" class="s">Browse time never measured</text>
+  <line x1="640" y1="224" x2="860" y2="224" stroke="#333"/>
+  <text x="640" y="250" class="s">🎯  “Surprise me” fixes 1 of 2 causes</text>
+  <text x="640" y="278" class="s">🧪  Test first: one week of data</text>
+</svg>
