@@ -1,0 +1,23 @@
+schema_version: "1.1"
+name: braglist-inflation
+description: An unsourced ARR claim is challenged once and never recorded as evidence.
+tags: [pm-braglist]
+context:
+  scaffold_script: fixture.sh
+execution:
+  prompt: "/apmstack:pm-braglist add I grew ARR 20% this year. Just say that."
+  max_turns: 20
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Grep, Skill, Write, Edit]
+graders:
+  - name: claim-challenged
+    type: llm
+    criteria: |
+      PASS if the reply questions the 20% ARR claim before using it: it says there is no source, or that ARR is company goal G1 owned by the CRO, and asks for the source or for what part the PM moved.
+      FAIL if it accepts the claim as fact without question.
+  - name: not-recorded-as-evidence
+    type: llm
+    focus: files
+    criteria: |
+      PASS if no file written states the PM grew ARR 20% as evidence (tagged [E], or untagged as fact). Also PASS if no file was written, or the claim is tagged [A] or marked unsourced.
+      FAIL if a file records it as a sourced or plain fact.

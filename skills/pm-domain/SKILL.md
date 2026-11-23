@@ -40,6 +40,7 @@ A domain pack is the folder `domains/<slug>/` in PM home.
 | File | Holds |
 |---|---|
 | `domain.md` | Product · Who pays, who uses · Business model · Stage · Strategy and current bets |
+| `goals.md` | The company's goals for the period, word for word, each with an ID (G1, G2), how it is measured, its owner, and which bets serve it · What the company is not doing this period. Kept by `/pm-goals` |
 | `glossary.md` | One line per term: `**Term**: what it means on this team`. Industry terms, internal jargon, acronyms, and words the team uses differently from everyone else |
 | `personas.md` | Per persona: the name the team uses, role, job, what they do today, what they are measured on, user or buyer |
 | `metrics.md` | North star · Input metrics · Guardrails, each with its definition, current value and target if one exists |
@@ -47,6 +48,7 @@ A domain pack is the folder `domains/<slug>/` in PM home.
 | `data.md` | Which analytics tools hold what · Where each number lives · Standing filters · Traps · Who to ask for data. Built up by `/pm-metrics` |
 | `constraints.md` | Regulatory · Technical · Contractual · Organisational |
 | `workflow.md` | Tracker · Work levels and what the team calls each (program or PGM; epic, feature/FTR or initiative; story; bug) · Story, epic, program and bug formats, copied word for word · Spec format · Definition of ready · Rituals · Approval path |
+| `triage.md` | How the PM ranks bugs: priority levels, products by what they are worth, impact classes, the matrix, always rules, and rules learned from their calls. Kept by `/pm-triage`, with every call in `triage-log.md` |
 | `competitors/<name>.md` | Positioning, pricing, capabilities that matter to the personas, where we lose and why. Include the do-nothing alternative |
 | `decisions/YYYY-MM-DD-<slug>.md` | The decision, who made it, why, what was rejected |
 
@@ -72,35 +74,36 @@ Open with this one question:
 1. Read everything they gave you. Read only; never change source material.
 2. Draft every pack file from it. Each fact carries the source document's name and date. Where the material implies something without stating it, mark an assumption. Where it is silent, write a `?` line. Where two documents disagree, keep the newer and record the conflict as a `?` line. Copy templates and definitions word for word (story format, definition of ready, glossary entries).
 3. Save the drafts, then report in six lines or fewer: per file, how many facts, assumptions and open questions.
-4. Correct one file at a time, in this order: domain, personas, metrics, workflow, stakeholders, glossary, constraints. Show the three to six lines that carry the most weight and the one you are least sure of, then ask "What is wrong or missing here?" "Fine, next" is a full answer. Corrections are recorded as `(source: PM, <today>)`.
+4. Correct one file at a time, in this order: domain, goals, personas, metrics, workflow, stakeholders, glossary, constraints. Show the three to six lines that carry the most weight and the one you are least sure of, then ask "What is wrong or missing here?" "Fine, next" is a full answer. Corrections are recorded as `(source: PM, <today>)`.
 5. Run the interview below for the `?` lines that remain, most valuable first.
 
 ### Interview
 
-About fifteen questions, one at a time, in this order, which puts what the other skills need most first. When you create the domain, write every unanswered question into its file as a `?` line straight away. Then write each answer to its file as soon as you have it and remove its `?` line. Stopping loses nothing, and `/pm-domain` picks up from the `?` lines that are left.
+About sixteen questions, one at a time, in this order, which puts what the other skills need most first. When you create the domain, write every unanswered question into its file as a `?` line straight away. Then write each answer to its file as soon as you have it and remove its `?` line. Stopping loses nothing, and `/pm-domain` picks up from the `?` lines that are left.
 
 1. What does the product do, and for whom, in two sentences? → `domain.md`
 2. Who pays for it and who uses it day to day? Same person? → `domain.md`, `personas.md`
 3. Think of one real customer. What was their main user doing before they had you? → `personas.md`
 4. What number is your team judged on? Its current value, as of when, from which report? → `metrics.md`
 5. Which two or three numbers feed it, and which must not get worse? → `metrics.md`
-6. What are the one to three bets for this half or this year? → `domain.md`
-7. Paste a recent ticket, spec or message thread and I will pull the jargon, or name five words an outsider would not understand. → `glossary.md`
-8. Who has to say yes to your work, and who can say no? What does each care about? → `stakeholders.md`
-9. How does each of them like to be told things: a doc, a message, a meeting? → `stakeholders.md`
-10. Which tracker do you use? Paste one story you wrote and thought was well written. → `workflow.md`, `voice.md`
-11. What makes a story ready to build here? What does a spec go through before it is approved? → `workflow.md`
-12. What can you not do: legal, contractual, technical, or because of how the company is organised? → `constraints.md`
-13. Who is the other buyer or user you serve, if there is one? → `personas.md`
-14. Who do you lose deals to, and what do customers do when they choose nobody? → `competitors/`
-15. Name one recent decision worth remembering, and why it went that way. → `decisions/`
+6. What goals has the company set for this year? Paste the OKRs or strategy memo if you have them. → `goals.md` (record them as `/pm-goals` does: word for word, one ID each, `?` lines for any measure or owner not given)
+7. What are the one to three bets for this half or this year? → `domain.md`, then ask which goal each serves, one bet at a time → `goals.md`
+8. Paste a recent ticket, spec or message thread and I will pull the jargon, or name five words an outsider would not understand. → `glossary.md`
+9. Who has to say yes to your work, and who can say no? What does each care about? → `stakeholders.md`
+10. How does each of them like to be told things: a doc, a message, a meeting? → `stakeholders.md`
+11. Which tracker do you use? Paste one story you wrote and thought was well written. → `workflow.md`, `voice.md`
+12. What makes a story ready to build here? What does a spec go through before it is approved? → `workflow.md`
+13. What can you not do: legal, contractual, technical, or because of how the company is organised? → `constraints.md`
+14. Who is the other buyer or user you serve, if there is one? → `personas.md`
+15. Who do you lose deals to, and what do customers do when they choose nobody? → `competitors/`
+16. Name one recent decision worth remembering, and why it went that way. → `decisions/`
 
 While interviewing:
 
 - Ask for a real example over a description. "Paste a story you thought was good" beats "describe your story format".
 - Push back once on a vague answer by asking for the specific instance. If it is still vague, record it as an assumption and move on.
 - "Skip" and "I don't know" leave the `?` line in place. Do not push.
-- Every few questions, say where they are in a few words: "7 of 15, about eight minutes left."
+- Every few questions, say where they are in a few words: "7 of 16, about eight minutes left."
 - Do not read answers back. Write them down and ask the next question.
 
 ## 6. When the pack is usable
@@ -111,7 +114,7 @@ Set `Active domain: <slug>` in `apmstack.md` and remove any `Example:` line. Sum
 
 List what has gone stale in the active pack, grouped by file, each with the line and its age:
 
-- **Stale**: metric values older than 45 days; strategy, stakeholders and competitors older than 90 days; anything else older than 180 days.
+- **Stale**: metric values older than 45 days; strategy, goals, stakeholders and competitors older than 90 days; anything else older than 180 days.
 - **Unsourced**: fact lines with no source.
 - **Assumptions** never confirmed.
 - **Open questions**: the `?` lines.

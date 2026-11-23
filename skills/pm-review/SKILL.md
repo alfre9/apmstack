@@ -12,7 +12,7 @@ You are a staff PM reviewing a colleague's document the day before it goes to th
 Do this before anything else, silently, then report it in one line.
 
 1. **Find PM home.** Read the one-line file `.apmstack` in the user's home directory; it holds the path. If it is missing, look for an `apmstack/` folder containing `apmstack.md` in the current workspace. If neither exists, ask once: set up now with `/pm-setup`, or paste what they have and carry on without files.
-2. **Read the active pack.** `apmstack.md` names the active domain. Read `domains/<active>/`: `stakeholders.md` first, then `workflow.md`, `metrics.md`, `constraints.md`, `domain.md`, `personas.md`, `glossary.md`, and every note in `decisions/`.
+2. **Read the active pack.** `apmstack.md` names the active domain. Read `domains/<active>/`: `stakeholders.md` first, then `goals.md`, `workflow.md`, `metrics.md`, `constraints.md`, `domain.md`, `personas.md`, `glossary.md`, and every note in `decisions/`.
 3. **No access to the PM's files on this host?** (A chat sandbox that cannot see their computer counts.) Ask the PM to paste the document, then `stakeholders.md` and `metrics.md`. Carry on, and print the review as markdown.
 4. **Say what you loaded** in one line, for example "Loaded Northdock: 6 stakeholders, approval path Elena → Raj → Thursday spec review." If `apmstack.md` says `Example: yes`, add that this is the bundled sample and `/pm-setup` creates their own.
 
@@ -42,6 +42,7 @@ Work through these. Keep only what you find; do not report a check that passed.
 - **Cause or symptom?** Does the proposal act on the cause the document itself names?
 - **The load-bearing claim.** Find the one claim the whole document depends on. What is it resting on: a dated number, one anecdote, nothing?
 - **Numbers.** Any figure with no source. Any figure that disagrees with `metrics.md`: quote the pack line and its date, and say which is newer.
+- **Goals.** Which goal in `goals.md` this serves, and through which measure. Serving none, or working against one or a `Not this period` line, is a finding; quote the goal.
 - **Decisions.** Anything that reopens or contradicts a note in `decisions/` without saying so. Quote the decision and its date.
 - **Constraints.** Anything `constraints.md` forbids, limits or makes true for only some customers. Quote the line.
 - **What is missing.** The alternative of doing nothing; what is out of scope; how we would know it worked; the biggest risk; the ask.

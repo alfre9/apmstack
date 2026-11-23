@@ -1,6 +1,6 @@
 ---
 name: pm-connect
-description: Finds the tools connected to this session (tracker, docs, chat, analytics and others), records how the PM wants each one used, and explains how to connect the common ones. Other APMstack skills read the result.
+description: Finds the tools connected to this session (tracker, docs, chat, email, analytics and others), records how the PM wants each one used, and explains how to connect the common ones. Other APMstack skills read the result.
 ---
 
 # /pm-connect: connected tools
@@ -26,9 +26,10 @@ If this host has no access to the PM's files, do the session in the chat and pri
 
 | Slot | What other skills use it for | Typical tools |
 |---|---|---|
-| tracker | `/pm-story`, `/pm-bug`, `/pm-epic` and `/pm-pgm` read, create and update tickets | Jira, Linear, Azure DevOps, GitHub Issues |
+| tracker | `/pm-story`, `/pm-bug`, `/pm-epic` and `/pm-pgm` read, create and update tickets; `/pm-triage` reads bugs and sets their priority; `/pm-dash` reads what is assigned to the PM | Jira, Linear, Azure DevOps, GitHub Issues |
 | docs | `/pm-spec` creates the document; `/pm-domain` ingests | Confluence, Notion, Google Docs, SharePoint |
-| chat | reading threads the PM points at | Slack, Teams |
+| chat | reading threads the PM points at; `/pm-dash` reads mentions and direct messages | Slack, Teams |
+| email | `/pm-dash` finds asks and deadlines sent to the PM | Gmail, Outlook |
 | analytics | `/pm-metrics` finds the numbers a ticket needs | Amplitude, Mixpanel, a warehouse |
 | research | call notes and interview material | Dovetail, Gong, a shared drive |
 | design | linking designs to stories | Figma |
@@ -39,10 +40,11 @@ If this host has no access to the PM's files, do the session in the chat and pri
 
 1. **Look at the tools available in this session** beyond files and shell: connected apps and MCP servers. Map each to a slot by what it can do. A tool that is listed but needs signing in counts as "needs sign-in", not as connected.
 2. **Report in one short table:** slot, tool found, state (ready · needs sign-in · none). Note any tool `workflow.md` names that is not connected.
-3. **Configure the filled slots one at a time,** most useful first (tracker, then docs, then chat). For each, one question:
+3. **Configure the filled slots one at a time,** most useful first (tracker, then docs, then chat, then email). For each, one question:
    - tracker: "Which project or team key should stories go to, and is there a label you want on anything APMstack creates?"
    - docs: "Where should new documents be created: which space, folder or parent page?"
    - chat: "Which channels may I read when you point me at a thread? Anything that must never be quoted or posted?"
+   - email: "Which folders or labels may I read for to-dos? Anything I must never read or quote?"
    - analytics: "Which workspace or project holds your product's data, and are there filters I should always apply, such as excluding test accounts?" Write the filters to `data.md` in the active domain.
    - others: "How do you want me to use this, and is anything off limits?"
 
@@ -93,7 +95,7 @@ Connections are made in the AI host, not in APMstack. Give the PM only the part 
 | Slack | `https://mcp.slack.com/mcp` (a workspace admin must approve it first) | docs.slack.dev/ai/slack-mcp-server |
 | Jira and Confluence | Atlassian has changed this URL more than once; take it from their page | support.atlassian.com/atlassian-rovo-mcp-server |
 
-For anything else (Figma, Amplitude, Google Drive, Teams, Dovetail), look in the host's connector directory first, then on the vendor's site for "MCP server". Do not give the PM a server URL from memory; if you cannot open the vendor's page in this session, tell them to look it up there.
+For anything else (Gmail, Outlook, Figma, Amplitude, Google Drive, Teams, Dovetail), look in the host's connector directory first, then on the vendor's site for "MCP server". Do not give the PM a server URL from memory; if you cannot open the vendor's page in this session, tell them to look it up there.
 
 After they connect something, they run `/pm-connect` again and it picks up at step 1.
 

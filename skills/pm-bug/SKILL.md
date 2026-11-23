@@ -108,7 +108,7 @@ Save to `domains/<active>/bugs/YYYY-MM-DD-<short-slug>.md` with frontmatter: `ty
 - **`connectors.md` still rules.** Its `Use:` line gives the project key and labels; a `Never:` line is absolute. If tracker tools are present but nothing is recorded there, ask for the project or team key once and offer to save it.
 - **No tracker tools:** print the report in a code block, ready to paste.
 
-Close in two lines: what was filed or printed, and what is still not known.
+Close in two lines: what was filed or printed, and what is still not known. If `triage.md` exists in the pack, add that `/pm-triage <key>` ranks it against the rest of the queue.
 
 ## Last step: offer pack updates
 

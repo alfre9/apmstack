@@ -40,7 +40,7 @@ Get the PM from "just installed" to "first domain started" in about two minutes 
 
    Write the absolute path of PM home, on one line, to `.apmstack` in the user's home directory. Other folders are created later by the skills that need them.
 
-4. **Note the connectors.** Look at the tools available in this session beyond files and shell: connected apps and MCP servers. Map each to a slot: tracker, docs, chat, analytics, research, design, calendar, notes. Write `connectors.md` in PM home with a `## <slot>` heading per slot and one line under it, either `- Tool: Linear, not configured` or `- Tool: none`. Ask nothing about them now. Tell the PM in one line what you found, that nothing is ever written to those tools without showing them first, and that `/pm-connect` records how each should be used. If there are none: "No connectors found. Every skill works by paste."
+4. **Note the connectors.** Look at the tools available in this session beyond files and shell: connected apps and MCP servers. Map each to a slot: tracker, docs, chat, email, analytics, research, design, calendar, notes. Write `connectors.md` in PM home with a `## <slot>` heading per slot and one line under it, either `- Tool: Linear, not configured` or `- Tool: none`. Ask nothing about them now. Tell the PM in one line what you found, that nothing is ever written to those tools without showing them first, and that `/pm-connect` records how each should be used. If there are none: "No connectors found. Every skill works by paste."
 
 5. **Start the first domain.** Go straight into `/pm-domain` and follow it. If that skill is not installed, say so and stop.
 

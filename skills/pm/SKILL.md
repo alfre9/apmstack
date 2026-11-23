@@ -19,17 +19,22 @@ The PM tells you what they are trying to do. Name the one skill that fits, say w
    | teach APMstack their product, load documents, fix a stale fact, change product area | `/pm-domain` |
    | work out what the real problem is; they have a symptom, a complaint, a pile of data, or a feature someone asked for | `/pm-problem` |
    | write a one-pager, PRD or PR-FAQ | `/pm-spec` (it needs a problem statement first) |
+   | record the company's goals or OKRs; check whether the initiatives on hand serve them | `/pm-goals` |
    | write the strategy for a product area: outcomes, which epics, in what order, what is left out | `/pm-pgm` |
    | write an epic, feature (FTR) or initiative: one goal, several stories, other teams involved | `/pm-epic` |
    | break work into stories or tickets with acceptance criteria | `/pm-story` |
    | report something broken | `/pm-bug` |
+   | triage or prioritise a list of bugs; decide which to fix first; set or change how they rank bugs | `/pm-triage` |
    | find the numbers behind a story, epic or program, or ask someone for data that is not in the tools | `/pm-metrics` |
    | update a ticket that is already in Jira or Linear | the skill for that level; give it the key |
    | understand a competitor, or see what changed since last time | `/pm-compete` |
-   | file a thought, meeting notes or a transcript; ask "what do we know about X"; run the weekly review; find material for a promotion case | `/pm-brain` |
+   | file a thought, meeting notes or a transcript; ask "what do we know about X"; run the weekly review; go through the inbox that scheduled runs filled | `/pm-brain` (`/pm-brain inbox` for the inbox) |
+   | set their own goals for the year or half, tied to the company goals and their level or a promotion; check progress on them | `/pm-mygoals` |
+   | find the impact of their work for a yearly review, self-review or promotion case; log a win | `/pm-braglist` |
+   | see what to do next across all their projects; a daily brief or morning briefing; triage tickets, email and chat into a to-do list; rank work by impact and effort; a dashboard of their own work | `/pm-dash` |
    | hook up Jira, Linear, Slack, Notion or another tool, or change how one is used | `/pm-connect` |
    | get a document torn apart before the people in the room do it | `/pm-review` |
 
 4. **Catch the common misroute.** Do not send them where they asked just because they asked. If they ask for a spec, stories, an epic or a roadmap item and what they describe is a solution ("we need a dashboard") with no problem statement in `domains/<active>/problems/`, say so and point to `/pm-problem` first. One sentence, no lecture. If they insist, send them where they asked.
-5. **Not built yet.** Prioritisation, metrics design, discovery interview guides and synthesis, pre-mortems, roadmaps, launch plans and stakeholder updates are on the roadmap and have no skill. Say so plainly. Then name the nearest thing that helps, if one does: `/pm-problem` to sharpen the items before ranking them, `/pm-review` to pressure-test a plan or an update they have already written.
+5. **Not built yet.** Prioritisation of anything but bugs (bugs go to `/pm-triage`), metrics design, discovery interview guides and synthesis, pre-mortems, roadmaps, launch plans and stakeholder updates are on the roadmap and have no skill. Say so plainly. Then name the nearest thing that helps, if one does: `/pm-goals check` to see which items serve a company goal before ranking them, `/pm-problem` to sharpen them, `/pm-review` to pressure-test a plan or an update they have already written.
 6. **Start it.** Answer in two lines at most: the skill and the reason. Then follow that skill's instructions as if they had typed the command. If that skill is not installed, say so and stop.

@@ -1,0 +1,30 @@
+schema_version: "1.1"
+name: brain-weekly-unattended
+description: A scheduled weekly review writes the review, asks nothing, and leaves approvals in the inbox.
+tags: [pm-brain, unattended]
+context:
+  scaffold_script: fixture.sh
+execution:
+  prompt: "/apmstack:pm-brain weekly unattended"
+  max_turns: 30
+  timeout_seconds: 600
+  allowed_tools: [Read, Glob, Grep, Skill, Write, Edit, Bash]
+graders:
+  - name: review-written
+    type: file_exists
+    path: apmstack/reviews/*.md
+  - name: inbox-written
+    type: regex
+    target: { source: file, path: apmstack/inbox.md }
+    pattern: '- \[ \] .*impact entries'
+    flags: i
+  - name: impact-log-untouched
+    type: file_exists
+    path: apmstack/impact-log.md
+    exists: false
+  - name: no-waiting-question
+    type: llm
+    criteria: |
+      This was an unattended run with nobody to answer.
+      PASS if the final message asks the PM nothing it waits on and says that questions or approvals went to the inbox.
+      FAIL if it asks the PM a question and waits, or does not mention the inbox.
